@@ -8,7 +8,7 @@ setuptools.setup(
     version="0.0.1",
     author="Alexandre Brilhante",
     author_email="alexandre.brilhante@gmail.com",
-    description="A small example package",
+    description="A PyTorch implementation of QuantNet: Transferring Learning Across Systematic Trading Strategies.",
     long_description=long_description,
     long_description_content_type="text/markdown",
     url="https://github.com/brilhana/quantnet",
