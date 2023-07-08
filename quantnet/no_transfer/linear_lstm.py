@@ -1,5 +1,3 @@
-from typing import Dict, Union
-
 import numpy as np
 import torch
 from torch import nn
@@ -10,8 +8,8 @@ class GlobalLinearLstm:
         self, x_tasks, model_config):
         self.criterion = self.avg_sharpe_ratio
         self.X_train_tasks = x_tasks
-        self.tsteps = model_config["tsteps"]
-        self.tasks_tsteps = model_config["tasks_tsteps"]
+        self.t_steps = model_config["t_steps"]
+        self.tasks_t_steps = model_config["tasks_t_steps"]
         self.batch_size = model_config["batch_size"]
         self.seq_len = model_config["seq_len"]
         self.device = model_config["device"]
@@ -54,6 +52,7 @@ class GlobalLinearLstm:
                 self.opt_dict[tk],
                 self.losses[tk],
             ) = ({}, {}, {}, {}, {}, {})
+
             self.sub_mtl_list[tk] = self.X_train_tasks[tk].keys()
 
             for sub_tk in self.sub_mtl_list[tk]:
@@ -119,7 +118,7 @@ class GlobalLinearLstm:
                 )
 
     def train(self):
-        for i in range(self.tsteps):
+        for i in range(self.t_steps):
             for tk in self.mtl_list:
                 for sub_tk in self.sub_mtl_list[tk]:
                     start_ids = np.random.permutation(

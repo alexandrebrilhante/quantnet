@@ -46,7 +46,7 @@ def compute_performance_metrics(df):
 
     df_metrics = pd.DataFrame(index=range(df.shape[1]), columns=pf_metrics_labels)
 
-    for (pf, pf_label) in zip(pf_metrics, pf_metrics_labels):
+    for pf, pf_label in zip(pf_metrics, pf_metrics_labels):
         df_metrics[pf_label] = np.array(pf(df))
 
     df_metrics.index = df.columns
@@ -61,11 +61,12 @@ def get_data(data_config, problem_config, model_config):
         region_task_paths = [t + "_all_assets_data.pkl.gz" for t in data_config[region]]
         X_train_tasks[region], X_val_tasks[region], X_test_tasks[region] = {}, {}, {}
 
-        for (tk_path, tk) in zip(region_task_paths, data_config[region]):
+        for tk_path, tk in zip(region_task_paths, data_config[region]):
             df = pd.read_pickle(data_config["data_path"] + tk_path)
             df_train = df.iloc[
                 : -(problem_config["val_period"] + problem_config["holdout_period"])
             ]
+
             if problem_config["val_period"] != 0:
                 df_val = df.iloc[
                     -(
@@ -82,9 +83,11 @@ def get_data(data_config, problem_config, model_config):
             X_train_tasks[region][tk] = torch.from_numpy(df_train.values).to(
                 model_config["device"]
             )
+
             X_val_tasks[region][tk] = torch.from_numpy(df_val.values).to(
                 model_config["device"]
             )
+
             X_test_tasks[region][tk] = torch.from_numpy(df_test.values).to(
                 model_config["device"]
             )
