@@ -4,8 +4,7 @@ from torch import nn
 
 
 class GlobalLinearLstm:
-    def __init__(
-        self, x_tasks, model_config):
+    def __init__(self, x_tasks, model_config):
         self.criterion = self.avg_sharpe_ratio
         self.X_train_tasks = x_tasks
         self.t_steps = model_config["t_steps"]
