@@ -11,9 +11,9 @@ setuptools.setup(
     description="A PyTorch implementation of QuantNet: Transferring Learning Across Systematic Trading Strategies.",
     long_description=long_description,
     long_description_content_type="text/markdown",
-    url="https://github.com/brilhana/quantnet",
+    url="https://github.com/alexandrebrilhante/quantnet",
     project_urls={
-        "Bug Tracker": "https://github.com/brilhana/quantnet/issues",
+        "Bug Tracker": "https://github.com/alexandrebrilhante/quantnet/issues",
     },
     classifiers=[
         "Programming Language :: Python :: 3",

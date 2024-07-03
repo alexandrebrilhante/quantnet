@@ -199,7 +199,6 @@ class QuantNet:
                     all_df_train_metrics = df_train_metrics.copy()
                     all_df_val_metrics = df_val_metrics.copy()
                     all_df_test_metrics = df_test_metrics.copy()
-                    z = False
                 else:
                     all_df_train_metrics = pd.concat(
                         [all_df_train_metrics, df_train_metrics], axis=0
