@@ -1,5 +1,6 @@
 # quantnet
 
+[![Python](https://github.com/alexandrebrilhante/quantnet/actions/workflows/python-package.yml/badge.svg)](https://github.com/alexandrebrilhante/quantnet/actions/workflows/python-package.yml)
 ![PyPI - Python Version](https://img.shields.io/pypi/pyversions/quantnet)
 ![GitHub](https://img.shields.io/github/license/alexandrebrilhante/quantnet)
 
